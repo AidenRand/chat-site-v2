@@ -1,16 +1,9 @@
 import express from "express";
-import cors from 'cors';
 import {Server} from 'socket.io'
 import { createServer } from "node:http";
 
 const app = express();
-
-const corsConfig = {
-    origin: true,
-    credentials: true
-}
-
-app.use(cors(corsConfig));
+const port = 3001;
 
 const httpServer = createServer();
 
@@ -19,7 +12,6 @@ const io = new Server(httpServer, {
         origin: "http://localhost:3000"
     }
 })
-const port = 3001;
 
 io.on('connection', (socket) => {
     console.log("user connected", socket.id)
@@ -34,6 +26,6 @@ app.get('/', (req, res) => {
     res.send("Server sending");
 })
 
-httpServer.listen(3001, () => {
-    console.log("server running on port 3001");
+httpServer.listen(port, () => {
+    console.log(`Listening on port: ${port}`);
 })
