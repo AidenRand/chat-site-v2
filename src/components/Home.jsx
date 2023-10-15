@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
     const [userName, setUserName] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
-        console.log(e.target.value);
+        e.preventDefault();
+        localStorage.setItem('userName', userName);
+        navigate('/Chat');
     };
 
     return (
@@ -15,6 +18,7 @@ function Home() {
                     className='username-input-container'
                     type='text'
                     value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
                 ></input>
                 <button>Sign Up</button>
             </form>

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 import { io } from 'socket.io-client';
+import PageRoutes from './Routes';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
     useEffect(() => {
@@ -19,7 +21,13 @@ function App() {
         console.log(response);
     });
 
-    return <></>;
+    return (
+        <>
+            <BrowserRouter>
+                <PageRoutes />
+            </BrowserRouter>
+        </>
+    );
 }
 
 export default App;
