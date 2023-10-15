@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 import { io } from 'socket.io-client';
-import PageRoutes from './Routes';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import Chat from './components/Chat';
+
+const socket = io.connect('http://localhost:3001');
 
 function App() {
     useEffect(() => {
-        const socket = io.connect('http://localhost:3001');
         socket.on('connect', () => {
             console.log('Socket connected', socket.id);
         });
@@ -24,7 +26,10 @@ function App() {
     return (
         <>
             <BrowserRouter>
-                <PageRoutes />
+                <Routes>
+                    <Route exact path='/' element={<Home />} />
+                    <Route path='/Chat' element={<Chat socket={socket} />} />
+                </Routes>
             </BrowserRouter>
         </>
     );

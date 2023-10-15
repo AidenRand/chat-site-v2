@@ -19,6 +19,7 @@ function Home() {
                     type='text'
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
+                    minLength={6}
                 ></input>
                 <button>Sign Up</button>
             </form>
