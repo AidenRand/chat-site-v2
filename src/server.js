@@ -9,7 +9,7 @@ const httpServer = createServer();
 
 const io = new Server(httpServer, {
     cors: {
-        origin: "http://192.168.254.170:3000"
+        origin: "http://localhost:3000"
     }
 })
 
@@ -20,7 +20,10 @@ io.on('connection', (socket) => {
         console.log("User disconnected", reason);
     })
 
-    socket.on('message', (data) => console.log(data));
+    socket.on('message', (message) => {
+        io.sockets.emit('message', message);
+        console.log(message);
+    });
 
 })
 

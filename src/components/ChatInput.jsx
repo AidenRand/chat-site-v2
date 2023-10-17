@@ -14,6 +14,7 @@ function ChatInput({ socket }) {
             });
             console.log(socket.id);
         }
+        setMessages('');
     };
 
     return (
