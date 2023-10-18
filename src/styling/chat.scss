@@ -1,0 +1,39 @@
+$your-message-background: rgb(69, 44, 74);
+$their-message-background: rgb(106, 111, 106);
+
+.chat-output-container {
+    display: flex;
+    justify-content: center;
+
+    .messages 
+    {
+        display: grid;
+        min-width: 80vw;
+        grid-template-rows: auto;
+        grid-template-columns: 40vw 40vw;
+        gap: 20px;
+
+        .message
+        {
+            display: flex;
+            font-size: 1srem;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-top: s1px;
+            padding-bottom: 1px;
+            border-radius: 50px;
+            width: 30vw;
+
+        }
+        #your-message-div
+        {
+            background-color: $your-message-background;
+            grid-column: 2;
+        }
+
+        #their-message-div
+        {
+            background-color: $their-message-background;
+        }
+    }
+}

@@ -7,9 +7,15 @@ function ChatOutput({ messages }) {
             <div className='messages'>
                 {messages.map((message) =>
                     localStorage.getItem('userName') == message.name ? (
-                        <p key={message.id}>{message.text}</p>
+                        <div id='your-message-div' className='message'>
+                            {/* <p>{message.name}: </p> */}
+                            <p key={message.id}>{message.text}</p>
+                        </div>
                     ) : (
-                        <p key={message.id}>{message.text}</p>
+                        <div id='their-message-div' className='message'>
+                            {/* <p>{message.name}: </p> */}
+                            <p key={message.id}>{message.text}</p>
+                        </div>
                     )
                 )}
             </div>
