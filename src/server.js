@@ -3,13 +3,13 @@ import {Server} from 'socket.io'
 import { createServer } from "node:http";
 
 const app = express();
-const port = 3001;
+const port = 4001;
 
 const httpServer = createServer();
 
 const io = new Server(httpServer, {
     cors: {
-        origin: "http://localhost:3000"
+        origin: "http://localhost:4000"
     }
 })
 

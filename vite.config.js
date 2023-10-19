@@ -16,7 +16,7 @@ export default defineConfig(() => {
       // hmr: {
       //   clientPort: 4004,
       // },
-      port: 3000,
+      port: 4000,
     },
     build: {
       outDir: "./build",

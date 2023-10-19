@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Chat from './components/Chat';
 
-const socket = io.connect('http://localhost:3001');
+const socket = io.connect('http://localhost:4001');
 
 function App() {
     useEffect(() => {
@@ -19,7 +19,7 @@ function App() {
         });
     });
 
-    axios.get('http://localhost:3001').then((response) => {
+    axios.get('http://localhost:4001').then((response) => {
         console.log(response);
     });
 
